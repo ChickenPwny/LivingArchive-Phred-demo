@@ -11,6 +11,86 @@ body {
     line-height: 1.6;
     min-height: 100vh;
     padding: 20px;
+    position: relative;
+}
+
+/* Flash Popup */
+.flash-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+}
+
+.flash-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.flash-popup-content {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px 20px;
+    position: relative;
+    min-width: 200px;
+    border: 2px solid #ea4aaa;
+}
+
+.flash-popup-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.flash-popup-close:hover {
+    color: #333;
+}
+
+.flash-popup-body {
+    padding-right: 25px;
+}
+
+.sponsor-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.sponsor-link:hover {
+    transform: scale(1.05);
+}
+
+.sponsor-link svg {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .demo-container {
