@@ -131,14 +131,17 @@ function resetDemo() {
     animationState.isActive = false;
     
     // Reset animation elements
+    document.getElementById('email-box').classList.remove('active');
     document.getElementById('phishing-page').classList.remove('active');
-    document.getElementById('connection-line').classList.remove('active');
+    document.getElementById('connection-line-1').classList.remove('active');
+    document.getElementById('connection-line-2').classList.remove('active');
     document.getElementById('server').classList.remove('active');
     document.getElementById('event-badge').classList.remove('active');
     document.getElementById('event-badge').textContent = '0 Events';
     document.getElementById('event-log').classList.remove('active');
-    ['data-packet-1', 'data-packet-2', 'data-packet-3'].forEach(id => {
-        document.getElementById(id).classList.remove('active');
+    ['data-packet-email', 'data-packet-1', 'data-packet-2', 'data-packet-3'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
     });
     
     updateStats();
@@ -360,12 +363,12 @@ let animationState = {
 };
 
 function startAnimationLoop() {
-    // Start the animation cycle every 4 seconds
+    // Start the animation cycle every 6 seconds (longer to show full flow)
     setInterval(() => {
         if (!animationState.isActive) {
             triggerAnimation();
         }
-    }, 4000);
+    }, 6000);
     
     // Initial trigger
     setTimeout(() => triggerAnimation(), 1000);
@@ -373,21 +376,42 @@ function startAnimationLoop() {
 
 function triggerAnimation() {
     animationState.isActive = true;
+    const emailBox = document.getElementById('email-box');
+    const connectionLine1 = document.getElementById('connection-line-1');
     const phishingPage = document.getElementById('phishing-page');
-    const connectionLine = document.getElementById('connection-line');
+    const connectionLine2 = document.getElementById('connection-line-2');
     const server = document.getElementById('server');
     const eventBadge = document.getElementById('event-badge');
     const eventLog = document.getElementById('event-log');
     
-    // Step 1: User clicks on phishing page
-    phishingPage.classList.add('active');
+    // Step 1: User opens email
+    emailBox.classList.add('active');
     setTimeout(() => {
-        phishingPage.classList.remove('active');
+        emailBox.classList.remove('active');
     }, 500);
     
-    // Step 2: Data packets flow
+    // Step 2: Arrow flows from email to phishing page
     setTimeout(() => {
-        connectionLine.classList.add('active');
+        connectionLine1.classList.add('active');
+        const emailPacket = document.getElementById('data-packet-email');
+        emailPacket.classList.add('active');
+        setTimeout(() => {
+            emailPacket.classList.remove('active');
+            connectionLine1.classList.remove('active');
+        }, 1500);
+    }, 600);
+    
+    // Step 3: User clicks on phishing page
+    setTimeout(() => {
+        phishingPage.classList.add('active');
+        setTimeout(() => {
+            phishingPage.classList.remove('active');
+        }, 500);
+    }, 1800);
+    
+    // Step 4: Data packets flow from phishing page to server
+    setTimeout(() => {
+        connectionLine2.classList.add('active');
         const packets = ['data-packet-1', 'data-packet-2', 'data-packet-3'];
         packets.forEach((id, index) => {
             setTimeout(() => {
@@ -398,9 +422,9 @@ function triggerAnimation() {
                 }, 2000);
             }, index * 300);
         });
-    }, 600);
+    }, 2400);
     
-    // Step 3: Server receives
+    // Step 5: Server receives
     setTimeout(() => {
         server.classList.add('active');
         eventBadge.classList.add('active');
@@ -411,18 +435,18 @@ function triggerAnimation() {
             server.classList.remove('active');
             eventBadge.classList.remove('active');
         }, 500);
-    }, 1500);
+    }, 3500);
     
-    // Step 4: Show event log
+    // Step 6: Show event log
     setTimeout(() => {
         showEventLog();
-    }, 2000);
+    }, 4000);
     
-    // Step 5: Reset for next cycle
+    // Step 7: Reset for next cycle
     setTimeout(() => {
-        connectionLine.classList.remove('active');
+        connectionLine2.classList.remove('active');
         animationState.isActive = false;
-    }, 3500);
+    }, 5500);
 }
 
 function showEventLog() {
