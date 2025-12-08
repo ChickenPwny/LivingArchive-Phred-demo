@@ -28,7 +28,7 @@ body {
     position: sticky;
     top: 20px;
     height: fit-content;
-    width: 200px;
+    width: 750px;
     flex-shrink: 0;
     z-index: 100;
 }
@@ -37,7 +37,7 @@ body {
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 30px;
     border: 2px solid #ea4aaa;
     position: relative;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -51,60 +51,161 @@ body {
 .ad-label {
     position: absolute;
     top: -10px;
-    left: 10px;
+    left: 20px;
     background: #ea4aaa;
     color: white;
     font-size: 10px;
     font-weight: 600;
-    padding: 2px 8px;
+    padding: 4px 10px;
     border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.sponsor-ad-link {
+.ad-header {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    color: inherit;
-    gap: 12px;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
 }
 
 .ad-icon-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: #fff5f9;
     border-radius: 50%;
+    flex-shrink: 0;
     transition: transform 0.3s;
 }
 
-.sponsor-ad-link:hover .ad-icon-wrapper {
+.ad-content:hover .ad-icon-wrapper {
     transform: scale(1.1);
 }
 
-.sponsor-ad-link svg {
+.ad-icon-wrapper svg {
     animation: heartbeat 1.5s ease-in-out infinite;
 }
 
-.ad-text {
-    text-align: center;
-}
-
-.ad-title {
+.ad-focus {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-weight: 600;
+    font-size: 18px;
     color: #333;
-    font-size: 16px;
-    margin-bottom: 4px;
 }
 
-.ad-subtitle {
-    color: #ea4aaa;
-    font-size: 13px;
+.ad-focus-icon {
+    font-size: 20px;
+}
+
+.ad-focus-text {
+    color: #8b5cf6;
+}
+
+.ad-body {
+    margin-bottom: 20px;
+}
+
+.ad-tagline {
+    font-size: 16px;
     font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.ad-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.ad-why-section {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 3px solid #ea4aaa;
+}
+
+.ad-why-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.ad-benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ad-benefits-list li {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.ad-benefits-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ea4aaa;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.ad-benefits-list li:last-child {
+    margin-bottom: 0;
+}
+
+.ad-impact {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.ad-cta {
+    font-size: 15px;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.sponsor-ad-link {
+    display: block;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ea4aaa 0%, #c0399b 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 20px;
+}
+
+.sponsor-ad-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(234, 74, 170, 0.3);
+}
+
+.ad-link-text {
+    display: block;
 }
 
 @keyframes heartbeat {
@@ -675,7 +776,7 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
     .page-wrapper {
         flex-direction: column;
     }
@@ -683,28 +784,12 @@ body {
     .side-advertisement {
         position: static;
         width: 100%;
-        margin-top: 20px;
+        max-width: 750px;
+        margin: 20px auto 0;
     }
     
     .ad-content {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-    }
-    
-    .sponsor-ad-link {
-        flex-direction: row;
-    }
-    
-    .ad-icon-wrapper {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .ad-text {
-        text-align: left;
+        padding: 25px;
     }
 }
 
@@ -772,16 +857,51 @@ body {
         margin-top: 10px;
     }
     
-    .ad-content {
-        padding: 15px;
+    .side-advertisement {
+        width: 100%;
     }
     
-    .ad-title {
+    .ad-content {
+        padding: 20px;
+    }
+    
+    .ad-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .ad-focus {
+        font-size: 16px;
+    }
+    
+    .ad-tagline {
+        font-size: 15px;
+    }
+    
+    .ad-description {
+        font-size: 13px;
+    }
+    
+    .ad-why-title {
         font-size: 14px;
     }
     
-    .ad-subtitle {
+    .ad-benefits-list li {
         font-size: 12px;
+    }
+    
+    .ad-impact {
+        font-size: 13px;
+    }
+    
+    .ad-cta {
+        font-size: 14px;
+    }
+    
+    .sponsor-ad-link {
+        font-size: 12px;
+        padding: 10px 15px;
     }
 }
 
