@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     startAutoSimulation();
     initializeChart();
+    startAnimationLoop();
 });
 
 function initializeDemo() {
@@ -35,15 +36,25 @@ function initializeDemo() {
 }
 
 function setupEventListeners() {
-    document.getElementById('btn-open-email').addEventListener('click', simulateEmailOpen);
-    document.getElementById('btn-click-link').addEventListener('click', simulateLinkClick);
-    document.getElementById('btn-submit-form').addEventListener('click', simulateFormSubmit);
+    document.getElementById('btn-open-email').addEventListener('click', function() {
+        simulateEmailOpen();
+        triggerAnimation();
+    });
+    document.getElementById('btn-click-link').addEventListener('click', function() {
+        simulateLinkClick();
+        triggerAnimation();
+    });
+    document.getElementById('btn-submit-form').addEventListener('click', function() {
+        simulateFormSubmit();
+        triggerAnimation();
+    });
     document.getElementById('btn-reset').addEventListener('click', resetDemo);
     
     // Prevent default link behavior
     document.getElementById('demo-link').addEventListener('click', function(e) {
         e.preventDefault();
         simulateLinkClick();
+        triggerAnimation();
     });
 }
 
@@ -115,6 +126,20 @@ function resetDemo() {
         clicks: [],
         submits: []
     };
+    
+    animationState.eventCount = 0;
+    animationState.isActive = false;
+    
+    // Reset animation elements
+    document.getElementById('phishing-page').classList.remove('active');
+    document.getElementById('connection-line').classList.remove('active');
+    document.getElementById('server').classList.remove('active');
+    document.getElementById('event-badge').classList.remove('active');
+    document.getElementById('event-badge').textContent = '0 Events';
+    document.getElementById('event-log').classList.remove('active');
+    ['data-packet-1', 'data-packet-2', 'data-packet-3'].forEach(id => {
+        document.getElementById(id).classList.remove('active');
+    });
     
     updateStats();
     document.getElementById('activity-feed').innerHTML = '';
@@ -326,4 +351,105 @@ function drawChart() {
     ctx.fillStyle = '#e74c3c';
     ctx.fillRect(width - 120, 45, 10, 10);
 }
+
+// Animation functions
+let animationState = {
+    isActive: false,
+    eventCount: 0,
+    currentCycle: 0
+};
+
+function startAnimationLoop() {
+    // Start the animation cycle every 4 seconds
+    setInterval(() => {
+        if (!animationState.isActive) {
+            triggerAnimation();
+        }
+    }, 4000);
+    
+    // Initial trigger
+    setTimeout(() => triggerAnimation(), 1000);
+}
+
+function triggerAnimation() {
+    animationState.isActive = true;
+    const phishingPage = document.getElementById('phishing-page');
+    const connectionLine = document.getElementById('connection-line');
+    const server = document.getElementById('server');
+    const eventBadge = document.getElementById('event-badge');
+    const eventLog = document.getElementById('event-log');
+    
+    // Step 1: User clicks on phishing page
+    phishingPage.classList.add('active');
+    setTimeout(() => {
+        phishingPage.classList.remove('active');
+    }, 500);
+    
+    // Step 2: Data packets flow
+    setTimeout(() => {
+        connectionLine.classList.add('active');
+        const packets = ['data-packet-1', 'data-packet-2', 'data-packet-3'];
+        packets.forEach((id, index) => {
+            setTimeout(() => {
+                const packet = document.getElementById(id);
+                packet.classList.add('active');
+                setTimeout(() => {
+                    packet.classList.remove('active');
+                }, 2000);
+            }, index * 300);
+        });
+    }, 600);
+    
+    // Step 3: Server receives
+    setTimeout(() => {
+        server.classList.add('active');
+        eventBadge.classList.add('active');
+        animationState.eventCount++;
+        eventBadge.textContent = `${animationState.eventCount} Events`;
+        
+        setTimeout(() => {
+            server.classList.remove('active');
+            eventBadge.classList.remove('active');
+        }, 500);
+    }, 1500);
+    
+    // Step 4: Show event log
+    setTimeout(() => {
+        showEventLog();
+    }, 2000);
+    
+    // Step 5: Reset for next cycle
+    setTimeout(() => {
+        connectionLine.classList.remove('active');
+        animationState.isActive = false;
+    }, 3500);
+}
+
+function showEventLog() {
+    const eventLog = document.getElementById('event-log');
+    const events = [
+        'page_view',
+        'link_clicked',
+        'keystroke_logged',
+        'form_submit'
+    ];
+    
+    eventLog.innerHTML = '';
+    eventLog.classList.add('active');
+    
+    events.forEach((event, index) => {
+        setTimeout(() => {
+            const eventItem = document.createElement('div');
+            eventItem.className = 'event-item show';
+            eventItem.textContent = `✓ ${event}`;
+            eventLog.appendChild(eventItem);
+        }, index * 200);
+    });
+    
+    setTimeout(() => {
+        eventLog.classList.remove('active');
+    }, 2000);
+}
+
+// Animation functions are defined above
 

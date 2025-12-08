@@ -18,6 +18,225 @@ body {
     margin: 0 auto;
 }
 
+/* Animation Bar */
+.animation-bar {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.animation-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    min-height: 120px;
+}
+
+.phishing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+    padding: 15px 20px;
+    min-width: 150px;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s;
+}
+
+.phishing-page.active {
+    border-color: #e74c3c;
+    background: #f8d7da;
+    animation: pageClick 0.5s;
+}
+
+@keyframes pageClick {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.page-icon {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.page-label {
+    font-size: 12px;
+    color: #856404;
+    font-weight: 600;
+}
+
+.phishing-page.active .page-label {
+    color: #721c24;
+}
+
+.connection-line {
+    flex: 1;
+    height: 3px;
+    background: #ecf0f1;
+    margin: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.connection-line.active {
+    background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+    animation: pulseLine 2s infinite;
+}
+
+@keyframes pulseLine {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.data-packet {
+    position: absolute;
+    font-size: 1.5em;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.data-packet.active {
+    opacity: 1;
+    animation: movePacket 2s infinite;
+}
+
+@keyframes movePacket {
+    0% {
+        left: 0;
+        transform: translateX(0) scale(0.8);
+    }
+    50% {
+        transform: translateX(calc(50vw - 200px)) scale(1.2);
+    }
+    100% {
+        left: 100%;
+        transform: translateX(-100%) scale(0.8);
+    }
+}
+
+.data-packet:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.data-packet:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.data-packet:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+.server {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #d1ecf1;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    padding: 15px 20px;
+    min-width: 150px;
+    position: relative;
+    z-index: 2;
+}
+
+.server.active {
+    border-color: #2ecc71;
+    background: #d4edda;
+    animation: serverReceive 0.5s;
+}
+
+@keyframes serverReceive {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.server-icon {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.server-label {
+    font-size: 12px;
+    color: #0c5460;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.event-badge {
+    background: #3498db;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 5px;
+    min-width: 60px;
+    text-align: center;
+}
+
+.event-badge.active {
+    background: #2ecc71;
+    animation: badgePulse 0.5s;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.event-log {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    max-width: 200px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.event-log.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.event-item {
+    padding: 5px;
+    margin-bottom: 5px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.event-item.show {
+    animation: eventSlideIn 0.5s;
+}
+
+@keyframes eventSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .demo-header {
     background: white;
     padding: 20px;
