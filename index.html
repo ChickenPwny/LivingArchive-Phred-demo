@@ -8,39 +8,41 @@
 </head>
 <body>
     <div class="page-wrapper">
-        <div class="demo-container">
-        <!-- Animation Bar -->
-        <div class="animation-bar">
-            <div class="animation-container">
-                <div class="email-box" id="email-box">
-                    <div class="email-icon">📧</div>
-                    <div class="email-label">Email Opened</div>
-                </div>
-                <div class="connection-line" id="connection-line-1">
-                    <div class="data-packet" id="data-packet-email">→</div>
-                </div>
-                <div class="phishing-page" id="phishing-page">
-                    <div class="page-icon">🌐</div>
-                    <div class="page-label">Phishing Page</div>
-                </div>
-                <div class="connection-line" id="connection-line-2">
-                    <div class="data-packet" id="data-packet-1">📦</div>
-                    <div class="data-packet" id="data-packet-2">📦</div>
-                    <div class="data-packet" id="data-packet-3">📦</div>
-                </div>
-                <div class="server" id="server">
-                    <div class="server-icon">🖥️</div>
-                    <div class="server-label">Phred Server</div>
-                    <div class="event-badge" id="event-badge">0 Events</div>
-                </div>
-                <div class="event-log" id="event-log">
-                    <div class="event-item" id="event-item-1"></div>
-                    <div class="event-item" id="event-item-2"></div>
-                    <div class="event-item" id="event-item-3"></div>
+        <!-- Animation Sidebar (Left) -->
+        <aside class="animation-sidebar" id="animation-sidebar">
+            <div class="animation-bar">
+                <div class="animation-container">
+                    <div class="email-box" id="email-box">
+                        <div class="email-icon">📧</div>
+                        <div class="email-label">Email Opened</div>
+                    </div>
+                    <div class="connection-line" id="connection-line-1">
+                        <div class="data-packet" id="data-packet-email">↓</div>
+                    </div>
+                    <div class="phishing-page" id="phishing-page">
+                        <div class="page-icon">🌐</div>
+                        <div class="page-label">Phishing Page</div>
+                    </div>
+                    <div class="connection-line" id="connection-line-2">
+                        <div class="data-packet" id="data-packet-1">📦</div>
+                        <div class="data-packet" id="data-packet-2">📦</div>
+                        <div class="data-packet" id="data-packet-3">📦</div>
+                    </div>
+                    <div class="server" id="server">
+                        <div class="server-icon">🖥️</div>
+                        <div class="server-label">Phred Server</div>
+                        <div class="event-badge" id="event-badge">0 Events</div>
+                    </div>
+                    <div class="event-log" id="event-log">
+                        <div class="event-item" id="event-item-1"></div>
+                        <div class="event-item" id="event-item-2"></div>
+                        <div class="event-item" id="event-item-3"></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </aside>
 
+        <div class="demo-container">
         <!-- Quick Summary -->
         <section class="demo-section">
             <p style="color: #2c3e50; font-size: 26px; line-height: 1.8; text-align: center; max-width: 900px; margin: 0 auto 30px;">
