@@ -229,6 +229,183 @@ body {
 .demo-container {
     flex: 1;
     max-width: 1400px;
+    font-size: 22px; /* Base font-size increased significantly for better readability */
+}
+
+/* Increase all text content (paragraphs, descriptions) by +6px */
+.demo-container p,
+.demo-container span,
+.demo-container li,
+.demo-container div,
+.demo-container a,
+.demo-container label {
+    font-size: calc(1em + 6px) !important;
+}
+
+/* Increase all pixel-based font sizes within demo-container by +2px (reduced from +8px) */
+.demo-container .ad-label {
+    font-size: 26px !important; /* was 24px, now +2px */
+}
+
+.demo-container .ad-focus {
+    font-size: 24px !important; /* was 22px, now +2px */
+}
+
+.demo-container .ad-focus-icon {
+    font-size: 26px !important; /* was 24px, now +2px */
+}
+
+.demo-container .ad-tagline {
+    font-size: 23px !important; /* was 21px, now +2px */
+}
+
+.demo-container .ad-description {
+    font-size: 21px !important; /* was 19px, now +2px */
+}
+
+.demo-container .ad-why-title {
+    font-size: 22px !important; /* was 20px, now +2px */
+}
+
+.demo-container .ad-benefits-list li {
+    font-size: 20px !important; /* was 18px, now +2px */
+}
+
+.demo-container .ad-benefits-list li:before {
+    font-size: 24px !important; /* was 22px, now +2px */
+}
+
+.demo-container .ad-impact {
+    font-size: 21px !important; /* was 19px, now +2px */
+}
+
+.demo-container .ad-cta {
+    font-size: 22px !important; /* was 20px, now +2px */
+}
+
+.demo-container .sponsor-ad-link {
+    font-size: 21px !important; /* was 19px, now +2px */
+}
+
+/* Increase all font sizes within demo-container by +2px (reduced from +8px for better readability) */
+.demo-container .email-label {
+    font-size: 20px !important; /* was 12px, now +8px for readability */
+}
+
+.demo-container .page-label {
+    font-size: 20px !important; /* was 12px, now +8px for readability */
+}
+
+.demo-container .server-label {
+    font-size: 20px !important; /* was 12px, now +8px for readability */
+}
+
+.demo-container .event-badge {
+    font-size: 19px !important; /* was 11px, now +8px for readability */
+}
+
+.demo-container .event-log {
+    font-size: 19px !important; /* was 11px, now +8px for readability */
+}
+
+.demo-container .demo-badge {
+    font-size: 20px !important; /* was 12px, now +8px for readability */
+}
+
+.demo-container .stat-value {
+    font-size: 36px !important; /* was 32px, now +4px */
+}
+
+.demo-container .stat-label {
+    font-size: 22px !important; /* was 14px, now +8px for readability */
+}
+
+.demo-container .stat-percent {
+    font-size: 20px !important; /* was 12px, now +8px for readability */
+}
+
+.demo-container .activity-time {
+    font-size: 20px !important; /* was 12px, now +8px for readability */
+}
+
+.demo-container .activity-text {
+    font-size: 22px !important; /* was 14px, now +8px for readability */
+}
+
+.demo-container .email-time {
+    font-size: 22px !important; /* was 14px, now +8px for readability */
+}
+
+.demo-container .benefit-number {
+    font-size: 52px !important; /* was 48px, now +4px */
+}
+
+.demo-container .benefit-label {
+    font-size: 18px !important; /* was 16px, now +2px */
+}
+
+.demo-container .benefit-card p {
+    font-size: 22px !important; /* was 14px, now +8px for readability */
+}
+
+.demo-container .audience-card h3 {
+    font-size: 24px !important; /* was 18px, now +6px */
+}
+
+.demo-container .audience-card p {
+    font-size: 22px !important; /* was 14px, now +8px for readability */
+}
+
+.demo-container .tier-benefits li {
+    font-size: 22px !important; /* was 14px, now +8px for readability */
+}
+
+.demo-container .fund-item h3 {
+    font-size: 24px !important; /* was 18px, now +6px */
+}
+
+.demo-container .fund-item p {
+    font-size: 22px !important; /* was 14px, now +8px for readability */
+}
+
+.demo-container .contact-item {
+    font-size: 22px !important; /* was 16px, now +6px for readability */
+}
+
+.demo-container .demo-header h1 {
+    font-size: calc(1.8em + 2px) !important;
+}
+
+.demo-container .subtitle {
+    font-size: calc(1.1em + 2px) !important;
+}
+
+.demo-container .demo-section h2 {
+    font-size: calc(1.5em + 2px) !important;
+}
+
+.demo-container .feature-category h3 {
+    font-size: 26px !important; /* was 18px, now +8px for readability */
+}
+
+.demo-container .feature-category li {
+    font-size: 22px !important; /* was 14px, now +8px for readability */
+}
+
+.demo-container .features-highlight-box h3 {
+    font-size: calc(1.4em + 2px) !important;
+}
+
+.demo-container .features-highlight-box p {
+    font-size: calc(1em + 2px) !important;
+}
+
+.demo-container .sponsorship-cta-box h3 {
+    font-size: calc(1.5em + 2px) !important;
+}
+
+.demo-container .sponsorship-cta-box p {
+    font-size: calc(1em + 2px) !important;
 }
 
 /* Animation Bar */
@@ -282,7 +459,7 @@ body {
 }
 
 .email-label {
-    font-size: 12px;
+    font-size: 20px;
     color: #1565c0;
     font-weight: 600;
 }
@@ -323,7 +500,7 @@ body {
 }
 
 .page-label {
-    font-size: 12px;
+    font-size: 20px;
     color: #856404;
     font-weight: 600;
 }
@@ -433,7 +610,7 @@ body {
 }
 
 .server-label {
-    font-size: 12px;
+    font-size: 20px;
     color: #0c5460;
     font-weight: 600;
     margin-bottom: 5px;
@@ -444,7 +621,7 @@ body {
     color: white;
     padding: 4px 8px;
     border-radius: 12px;
-    font-size: 11px;
+    font-size: 19px;
     font-weight: 600;
     margin-top: 5px;
     min-width: 60px;
@@ -469,7 +646,7 @@ body {
     color: white;
     padding: 10px;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: 19px;
     max-width: 200px;
     opacity: 0;
     transform: translateX(100%);
@@ -533,7 +710,7 @@ body {
     color: white;
     padding: 4px 8px;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 600;
     animation: pulse 2s infinite;
 }
@@ -702,7 +879,7 @@ body {
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 22px;
     transition: background 0.3s;
     text-decoration: none;
     display: inline-block;
@@ -764,7 +941,7 @@ body {
 
 .feature-card p {
     color: #7f8c8d;
-    font-size: 0.9em;
+    font-size: 1.4em;
 }
 
 .demo-footer {
@@ -772,7 +949,7 @@ body {
     color: #7f8c8d;
     padding: 20px;
     margin-top: 20px;
-    font-size: 14px;
+    font-size: 22px;
 }
 
 .demo-footer a {
@@ -946,7 +1123,7 @@ body {
 
 .feature-category h3 {
     color: #2c3e50;
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 600;
     margin-bottom: 15px;
     padding-bottom: 10px;
@@ -961,7 +1138,7 @@ body {
 
 .feature-category li {
     color: #555;
-    font-size: 14px;
+    font-size: 22px;
     line-height: 1.8;
     margin-bottom: 12px;
     padding-left: 20px;
@@ -1027,13 +1204,13 @@ body {
 
 .audience-card h3 {
     color: #2c3e50;
-    font-size: 18px;
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
 .audience-card p {
     color: #555;
-    font-size: 14px;
+    font-size: 22px;
     line-height: 1.6;
     margin: 0;
 }
@@ -1069,7 +1246,7 @@ body {
 }
 
 .benefit-label {
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 600;
     color: #2c3e50;
     margin-bottom: 10px;
@@ -1077,7 +1254,7 @@ body {
 
 .benefit-card p {
     color: #555;
-    font-size: 14px;
+    font-size: 22px;
     line-height: 1.6;
     margin: 0;
 }
@@ -1116,7 +1293,7 @@ body {
     padding: 8px 16px;
     border-radius: 20px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 22px;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1145,7 +1322,7 @@ body {
 
 .tier-benefits li {
     color: #555;
-    font-size: 14px;
+    font-size: 22px;
     line-height: 2;
     padding-left: 5px;
 }
@@ -1167,7 +1344,7 @@ body {
 
 .sponsorship-cta-box p {
     color: rgba(255,255,255,0.95);
-    font-size: 16px;
+    font-size: 22px;
     line-height: 1.7;
     margin-bottom: 25px;
 }
@@ -1180,7 +1357,7 @@ body {
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 22px;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
@@ -1214,13 +1391,13 @@ body {
 
 .fund-item h3 {
     color: #2c3e50;
-    font-size: 18px;
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
 .fund-item p {
     color: #555;
-    font-size: 14px;
+    font-size: 22px;
     line-height: 1.6;
     margin: 0;
 }
@@ -1243,7 +1420,7 @@ body {
 .contact-item {
     padding: 15px 0;
     border-bottom: 1px solid #ecf0f1;
-    font-size: 16px;
+    font-size: 22px;
 }
 
 .contact-item:last-child {
